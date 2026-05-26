@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LeaveProject</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="cssindex.css" />
+  </head>
+  <body>
+    <div id="signinCard" class="card">
+      <div class="logo-container">
+        <img
+          src="img/197217183_4080498165396721_214085174524642997_n.jpg"
+          alt="School Logo"
+          onerror="this.style.display = 'none'"
+        />
+      </div>
+
+      <h2>เข้าสู่ระบบ</h2>
+      <form id="signinForm">
+        <div class="form-group">
+          <label for="signinEmail">Email</label>
+          <input type="email" id="signinEmail" required />
+        </div>
+        <div class="form-group">
+          <label for="signinPassword">Password</label>
+          <input type="password" id="signinPassword" required />
+        </div>
+
+        <button type="submit" class="btn-submit">Sign In</button>
+
+        <div class="footer-links">
+          <span
+            >New here?
+            <span id="linkToRegister" class="link-toggle"
+              >Register here</span
+            ></span
+          >
+        </div>
+      </form>
+    </div>
+
+    <div id="registerCard" class="card hidden">
+      <div class="logo-container">
+        <img
+          src="img/logo.png"
+          alt="School Logo"
+          onerror="this.style.display = 'none'"
+        />
+      </div>
+
+      <h2>ลงทะเบียนสมาชิกใหม่</h2>
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="prename">คำนำหน้าชื่อ</label>
+          <input
+            type="text"
+            id="prename"
+            placeholder="เช่น นาย / นาง / นางสาว"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="firstname">ชื่อจริง</label>
+          <input type="text" id="firstname" required />
+        </div>
+        <div class="form-group">
+          <label for="lastname">นามสกุล</label>
+          <input type="text" id="lastname" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">เบอร์โทรศัพท์</label>
+          <input type="tel" id="phone" required />
+        </div>
+        <div class="form-group">
+          <label for="email">อีเมล</label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="form-group">
+          <label for="password">รหัสผ่าน</label>
+          <input type="password" id="password" required />
+        </div>
+
+        <div class="form-group">
+          <label for="typeID">ประเภทบุคลากร</label>
+          <select id="typeID" required>
+            <option value="">-- กรุณาเลือกประเภท --</option>
+            <option value="T001">คุณครู (Teacher)</option>
+            <option value="T002">ลูกจ้าง (Employee)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="subtypeID">ฝ่าย / แผนกงานย่อย</label>
+          <select id="subtypeID" required disabled>
+            <option value="">-- กรุณาเลือกประเภทบุคลากรด้านบนก่อน --</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-submit">Submit Register</button>
+
+        <div class="footer-links">
+          <span id="linkToSignin" class="link-toggle">← Back to Sign In</span>
+        </div>
+      </form>
+    </div>
+
+    <div id="statusModal" class="modal-overlay hidden">
+      <div class="modal-card">
+        <div id="modalIcon" class="modal-icon"></div>
+        <h3 id="modalTitle">ข้อความแจ้งเตือน</h3>
+        <button id="modalCloseBtn" class="modal-btn">ตกลง</button>
+      </div>
+    </div>
+
+    <script src="jsindex.js"></script>
+  </body>
+</html>

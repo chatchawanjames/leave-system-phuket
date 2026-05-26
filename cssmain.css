@@ -1,0 +1,431 @@
+/* คุมธีมคลีน สบายตา มินิมอลโรงเรียน (ขาว-เทา-ฟ้า) */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Prompt", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f6f9; /* พื้นหลังเทาอ่อน สบายตา */
+  min-height: 100vh;
+}
+
+/* ==========================================
+   🧭 NAVBAR STYLES
+   ========================================== */
+.navbar {
+  background-color: #ffffff;
+  height: 70px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ฝั่งซ้าย: โลโก้ */
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ตรงกลาง: ชื่อระบบ */
+.nav-center h1 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+/* ฝั่งขวา: โปรไฟล์และ Dropdown */
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.profile-dropdown {
+  position: relative;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  text-align: right; /* ดันข้อความชิดขวาตามบรีฟ */
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.user-subtype {
+  font-size: 12px;
+  font-weight: 400;
+  color: #64748b; /* สีเทาซอฟต์ๆ สำหรับบรรทัดล่าง */
+}
+
+/* ลูกศรลง CSS */
+.arrow-down {
+  border: solid #64748b;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+  margin-top: -2px;
+}
+
+/* ==========================================
+   🎯 HOVER DROPDOWN LOGIC
+   ========================================== */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #ffffff;
+  min-width: 150px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 6px 0;
+  display: none; /* ซ่อนไว้ก่อนในสเต็ปแรก */
+  animation: dropdownFade 0.2s ease-out;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* เมื่อเอาเมาส์ไปโดน (Hover) ให้แสดงกล่องเมนู และหมุนลูกศรขึ้น */
+.profile-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.profile-dropdown:hover .arrow-down {
+  transform: rotate(-135deg); /* ลูกศรหมุนชี้ขึ้นตอนเปิด */
+}
+
+/* ปุ่ม Sign Out สีฟ้าเบสิค/นุ่มนวล */
+.dropdown-item {
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4a5568;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #eff6ff; /* พื้นหลังฟ้าอ่อนตอน Hover */
+  color: #3b82f6; /* ข้อความสีฟ้าเบสิค */
+}
+
+/* ==========================================
+   📦 MAIN CONTENT AREA
+   ========================================== */
+.content-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.welcome-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.welcome-box h2 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #2d3748;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.welcome-box p {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* ==========================================
+   🗂️ DIZAIN CARD MENU GRID (หน้า MAIN)
+   ========================================== */
+.menu-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 25px;
+  justify-content: center; /* จัดให้การ์ดอยู่กึ่งกลางกลุ่ม */
+}
+
+.menu-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+  color: inherit;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    border-color 0.2s;
+  cursor: pointer;
+}
+
+/* เอฟเฟกต์ยกตัวตอนเอาเมาส์ไปชี้การ์ด */
+.menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  border-color: #3b82f6;
+}
+
+.menu-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  background-color: #eff6ff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* วาดไอคอนรูปคนด้วย CSS */
+.icon-user-mgmt {
+  width: 14px;
+  height: 14px;
+  background-color: #3b82f6;
+  border-radius: 50%;
+  position: relative;
+}
+.icon-user-mgmt::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: -5px;
+  width: 24px;
+  height: 10px;
+  background-color: #3b82f6;
+  border-radius: 10px 10px 0 0;
+}
+
+.menu-card-detail h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2d3748;
+  margin-bottom: 8px;
+}
+
+.menu-card-detail p {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   📄 ไอคอนรูปใบลาออนไลน์ด้วย CSS คลีนๆ (ต่อท้ายเมนูเดิม)
+   ========================================== */
+.icon-leave-req {
+  width: 14px;
+  height: 18px;
+  border: 2px solid #22c55e; /* สีเขียวสบายตา */
+  border-radius: 2px;
+  position: relative;
+}
+/* วาดเส้นจำลองตัวหนังสือในใบลา */
+.icon-leave-req::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 2px;
+  width: 6px;
+  height: 2px;
+  background-color: #22c55e;
+  box-shadow:
+    0 4px 0 #22c55e,
+    0 8px 0 #22c55e;
+}
+
+/* ==========================================
+   📊 ไอคอนเมนู Quota & Profiles ด้วย CSS คลีนๆ
+   ========================================== */
+.icon-quota-prof {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #0284c7; /* สีฟ้าไอคอนสเปก HR */
+  border-radius: 3px;
+  position: relative;
+}
+/* ดีไซน์สัญลักษณ์รูปเฟือง/โปรไฟล์ซ้อนประยุกต์ */
+.icon-quota-prof::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 2px;
+  width: 8px;
+  height: 2px;
+  background-color: #0284c7;
+  box-shadow: 0 4px 0 #0284c7;
+}
+
+.icon-leave-hist {
+  width: 22px;
+  height: 22px;
+  border: 2.5px solid #7c3aed; /* เส้นสายสีม่วงเข้มเด่นชัด */
+  border-radius: 50%;
+  position: relative;
+}
+
+/* วาดเข็มนาฬิกาชี้บอกเวลา */
+.icon-leave-hist::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 7px;
+  background-color: #7c3aed;
+  top: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.icon-leave-hist::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 2px;
+  background-color: #7c3aed;
+  top: 9px;
+  left: 50%;
+}
+
+/* ==========================================================================
+   🧱 เพิ่มเติมคลาสสำหรับปุ่มเมนูใหม่ Approve Management (ฝั่ง ผอ.)
+   ========================================================================== */
+
+/* 1. วาดรูปแผ่นบอร์ดตรวจงานด้วยเส้นขอบ CSS คลีนๆ (ล้อตามสไตล์ปุ่มอื่นเป๊ะ) */
+.icon-approve-mgmt {
+  width: 16px;
+  height: 20px;
+  border: 2px solid #ea580c; /* สีส้มสเปกผู้บริหาร */
+  border-radius: 3px;
+  position: relative;
+}
+
+/* วาดหัวคลิปหนีบกระดาษด้านบน */
+.icon-approve-mgmt::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 4px;
+  border: 2px solid #ea580c;
+  border-bottom: none;
+  border-radius: 2px 2px 0 0;
+}
+
+/* วาดเครื่องหมายติ๊กถูก (Checkmark) ข้างในบอร์ด */
+.icon-approve-mgmt::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 4px;
+  height: 8px;
+  border: solid #ea580c;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* 2. เอฟเฟกต์ตอนขยับเมาส์ชี้ */
+.menu-card:hover .icon-approve-mgmt {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* ==========================================================================
+   🧱 [ไอคอนเมนูสุดท้าย]: วาดรูปคนคู่ส่งต่องานปฏิบัติงานแทนด้วย CSS คลีนๆ 
+   ========================================================================== */
+.icon-substitute-mgmt {
+  width: 20px;
+  height: 14px;
+  background-color: #0284c7; /* สีฟ้าไอคอนสเปกวิชาการ/ตัวแทน */
+  border-radius: 10px 10px 0 0;
+  position: relative;
+  margin-top: 10px; /* ขยับตำแหน่งบาลานซ์ */
+}
+
+/* วาดหัวของคนหลัก (คนขวา) */
+.icon-substitute-mgmt::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  background-color: #0284c7;
+  border-radius: 50%;
+}
+
+/* วาดคนซ้อนด้านหลัง (คนซ้าย เงาตัวแทนส่งต่องาน) */
+.icon-substitute-mgmt::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* ขยับเยื้องซ้ายลึก */
+  left: -8px;
+  width: 16px;
+  height: 10px;
+  background-color: #38bdf8; /* สีฟ้าอ่อนจำลองมิติตัวแทน */
+  border-radius: 8px 8px 0 0;
+  box-shadow: -2px -6px 0 -2px #38bdf8; /* สลักรูปหัวของคนซ้ายซ้อนขึ้นไป */
+}
+
+/* 🔄 เอฟเฟกต์ยกตัวขยายขนาดตอนเอาเมาส์ไปชี้การ์ด (Hover) ล้อตามเมนูอื่นเป๊ะ */
+.menu-card:hover .icon-substitute-mgmt {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}

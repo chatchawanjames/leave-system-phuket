@@ -1,0 +1,477 @@
+/* ==========================================================================
+   🎨 APPROVE MANAGEMENT STYLES (คุมธีม ขาว-เทา-ส้ม-เขียว)
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Prompt", sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+  min-height: 100vh;
+}
+
+/* NAVBAR สไตล์เดิมของระบบพี่เจมส์ */
+.navbar {
+  background-color: #ffffff;
+  height: 70px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  height: 50px;
+  width: auto;
+}
+
+.nav-center h1 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.profile-text {
+  text-align: right;
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.user-subtype {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* LAYOUT CONTAINER */
+/* 🟢 จุดที่อัปเดต: ขยายขนาดกว้างสุดเป็น 1400px ให้สมดุลสเกลเดียวกับหน้าประวัติการลา */
+.content-container {
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* 🟢 จุดที่อัปเดต: ปรับเซ็ตคลาสควบคุมและเอฟเฟกต์ Hover ของปุ่มย้อนกลับให้เหมือนหน้าประวัติ */
+.back-link-wrapper {
+  margin-bottom: 20px;
+}
+
+.btn-back {
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn-back:hover {
+  text-decoration: underline;
+}
+
+/* 🔍 🟢 จุดที่เพิ่มใหม่: ตกแต่งกล่องเครื่องมือ FILTER CARD ของ ผอ. ให้สวยคลีน */
+.filter-card {
+  background-color: #ffffff;
+  padding: 20px 25px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap; /* ป้องกันกล่องพังเวลากดดูในไอแพดหรือมือถือ */
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.filter-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.filter-group input[type="date"],
+.filter-group select {
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #334155;
+  outline: none;
+  background-color: #ffffff;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.filter-group input[type="date"]:focus,
+.filter-group select:focus {
+  border-color: #ea580c; /* เปลี่ยนเป็นสีส้มสเปกผู้บริหารตอนคลิกเลือก */
+}
+
+/* 🔍 🟢 จุดที่เพิ่มใหม่: ตกแต่งปุ่มค้นหาข้อมูลสีส้มพรีเมียม */
+.btn-search {
+  padding: 11px 24px;
+  background-color: #ea580c;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+}
+
+.btn-search:hover {
+  background-color: #c2410c;
+}
+
+.btn-search:active {
+  transform: scale(0.98);
+}
+
+.approve-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.approve-header {
+  margin-bottom: 25px;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 15px;
+}
+
+.approve-header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.approve-header p {
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 5px;
+}
+
+/* 📊 DATA TABLE STYLES */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.approve-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.approve-table th {
+  background-color: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+  padding: 14px 16px;
+  border-bottom: 2px solid #edf2f7;
+}
+
+.approve-table td {
+  padding: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.approve-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* 🎯 BUTTONS ACTION (ปุ่มกดของ ผอ.) */
+.action-group {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.btn-action {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-approve {
+  background-color: #22c55e;
+  color: #ffffff;
+}
+
+.btn-approve:hover {
+  background-color: #16a34a;
+  transform: translateY(-1px);
+}
+
+.btn-reject {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+.btn-reject:hover {
+  background-color: #dc2626;
+  transform: translateY(-1px);
+}
+
+/* 🔄 SPINNER LOADING STYLES */
+.spinner-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+  gap: 15px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #ea580c;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner-wrapper p {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* 📭 EMPTY STATE */
+.empty-state {
+  text-align: center;
+  padding: 60px 0;
+  color: #64748b;
+}
+
+.empty-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #dcfce7;
+  color: #15803d;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin: 0 auto 15px;
+}
+
+/* ==========================================================================
+   🖼️ PREMIUM MODAL DESIGN (ขาว-คลีน-ซอฟต์ตาสเปกโรงเรียน)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 23, 42, 0.4); /* มืดซอฟต์ๆ */
+  backdrop-filter: blur(4px); /* เบลอหลังบ้านเนียนๆ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: slideUp 0.25s ease-out;
+}
+
+.modal-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.modal-box h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.modal-box p {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 25px;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* ปุ่มภายใน Modal */
+.btn-modal {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  flex: 1;
+}
+
+.btn-modal-secondary {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+.btn-modal-secondary:hover {
+  background-color: #e2e8f0;
+}
+
+.btn-modal-danger {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+.btn-modal-danger:hover {
+  background-color: #dc2626;
+}
+
+.btn-modal-primary {
+  background-color: #ea580c; /* ธีมส้มผู้บริหาร */
+  color: #ffffff;
+}
+.btn-modal-primary:hover {
+  background-color: #c2410c;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   🧭 PROFILE DROPDOWN MENU STYLES (สไตล์ถอดรหัสตามรอยหน้าประวัติ 100%)
+   ========================================================================== */
+.profile-dropdown {
+  position: relative;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.arrow-down {
+  border: solid #64748b;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #ffffff;
+  min-width: 150px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 6px 0;
+  display: none; /* ซ่อนไว้ก่อนเริ่มต้น */
+}
+
+.profile-dropdown:hover .dropdown-menu {
+  display: block; /* สั่งกางออกเวลาเมาส์เลื่อนมา Hover */
+}
+
+.dropdown-item {
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  color: #4a5568;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #eff6ff;
+  color: #3b82f6;
+}

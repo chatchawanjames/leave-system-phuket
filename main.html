@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main - LeaveProject</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="cssmain.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <img
+          src="img/197217183_4080498165396721_214085174524642997_n.jpg"
+          alt="School Logo"
+          class="nav-logo"
+          onerror="this.style.display = 'none'"
+        />
+      </div>
+
+      <div class="nav-center">
+        <h1>ระบบลางาน โรงเรียนภูเก็ตปัญญานุกูล</h1>
+      </div>
+
+      <div class="nav-right">
+        <div class="profile-dropdown">
+          <div class="profile-info">
+            <div class="profile-text">
+              <span id="userFullName" class="user-name">นาย สมชาย ใจดี</span>
+              <span id="userSubtype" class="user-subtype">บริหารวิชาการ</span>
+            </div>
+            <i class="arrow-down"></i>
+          </div>
+
+          <div class="dropdown-menu">
+            <button id="signOutBtn" class="dropdown-item">
+              <span>Sign Out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="content-container">
+      <div class="welcome-box">
+        <h2>Menu</h2>
+
+        <div class="menu-grid">
+          <a
+            href="usermanagement.html"
+            id="menu-usermanagement"
+            class="menu-card"
+          >
+            <div class="menu-icon-wrapper">
+              <div class="icon-user-mgmt"></div>
+            </div>
+            <div class="menu-card-detail">
+              <h3>User Management</h3>
+              <p>จัดการข้อมูลบุคลากร</p>
+            </div>
+          </a>
+
+          <a
+            href="quotaprofiles.html"
+            id="menu-quotaprofiles"
+            class="menu-card"
+          >
+            <div class="menu-icon-wrapper" style="background-color: #f0f9ff">
+              <div class="icon-quota-prof"></div>
+            </div>
+            <div class="menu-card-detail">
+              <h3>Quota & Profiles</h3>
+              <p>จัดการโควต้าและโปรไฟล์</p>
+            </div>
+          </a>
+
+          <a href="leaverequest.html" id="menu-leaverequest" class="menu-card">
+            <div class="menu-icon-wrapper" style="background-color: #f0fdf4">
+              <div class="icon-leave-req"></div>
+            </div>
+            <div class="menu-card-detail">
+              <h3>Leave Request</h3>
+              <p>ทำเรื่องส่งใบลา</p>
+            </div>
+          </a>
+
+          <a href="leavehistory.html" id="menu-leavehistory" class="menu-card">
+            <div class="menu-icon-wrapper" style="background-color: #f5f3ff">
+              <div class="icon-leave-hist"></div>
+            </div>
+            <div class="menu-card-detail">
+              <h3>Leave History</h3>
+              <p>ตรวจสอบประวัติสถานะใบลา</p>
+            </div>
+          </a>
+
+          <a
+            href="approvemanagement.html"
+            id="menu-approvemanagement"
+            class="menu-card"
+          >
+            <div class="menu-icon-wrapper" style="background-color: #fff7ed">
+              <div class="icon-approve-mgmt"></div>
+            </div>
+            <div class="menu-card-detail">
+              <h3>Approve Management</h3>
+              <p>ตรวจสอบและอนุมัติใบลา</p>
+            </div>
+          </a>
+
+          <a
+            href="substitute_management.html"
+            id="menu-substitute_management"
+            class="menu-card"
+          >
+            <div class="menu-icon-wrapper" style="background-color: #e0f2fe">
+              <div class="icon-substitute-mgmt"></div>
+            </div>
+            <div class="menu-card-detail">
+              <h3>Substitute Management</h3>
+              <p>จัดการบุคลากรปฏิบัติงานแทน</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <script src="jsmain.js"></script>
+  </body>
+</html>

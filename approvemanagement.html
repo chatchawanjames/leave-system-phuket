@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Approve Management - LeaveProject</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="stylesheet" href="cssapprove.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="main.html" style="text-decoration: none">
+          <img
+            src="img/197217183_4080498165396721_214085174524642997_n.jpg"
+            alt="School Logo"
+            class="nav-logo"
+            onerror="this.style.display = 'none'"
+          />
+        </a>
+      </div>
+
+      <div class="nav-center">
+        <h1>ระบบลางาน โรงเรียนภูเก็ตปัญญานุกูล</h1>
+      </div>
+
+      <div class="nav-right">
+        <div class="profile-dropdown">
+          <div class="profile-info">
+            <div class="profile-text">
+              <span id="userFullName" class="user-name">Loading...</span>
+              <span id="userSubtype" class="user-subtype">Loading...</span>
+            </div>
+            <i class="arrow-down"></i>
+          </div>
+          <div class="dropdown-menu">
+            <button id="signOutBtn" class="dropdown-item">
+              <span>Sign Out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="content-container">
+      <div class="back-link-wrapper">
+        <a href="main.html" class="btn-back">← กลับหน้าเมนูหลัก</a>
+      </div>
+
+      <div class="filter-card">
+        <div class="filter-group">
+          <label for="startDate">วันที่เริ่ม:</label>
+          <input type="date" id="startDate" />
+        </div>
+
+        <div class="filter-group">
+          <label for="endDate">วันที่สิ้นสุด:</label>
+          <input type="date" id="endDate" />
+        </div>
+
+        <div class="filter-group">
+          <label for="filterStatus">สถานะคำขอ:</label>
+          <select id="filterStatus">
+            <option value="waiting">⏳ รออนุมัติ (Waiting)</option>
+            <option value="approved">✅ อนุมัติแล้ว (Approved)</option>
+            <option value="rejected">❌ ปฏิเสธแล้ว (Rejected)</option>
+          </select>
+        </div>
+
+        <button id="searchBtn" class="btn-search">
+          <i class="bi bi-search"></i> ค้นหาข้อมูล
+        </button>
+      </div>
+
+      <div class="approve-box">
+        <div class="approve-header">
+          <h2>ตรวจสอบและอนุมัติใบลา</h2>
+        </div>
+
+        <div id="loadingSpinner" class="spinner-wrapper" style="display: none">
+          <div class="spinner"></div>
+          <p>กำลังค้นหาข้อมูล...</p>
+        </div>
+
+        <div id="tableContainer" class="table-responsive" style="display: none">
+          <table class="approve-table">
+            <thead>
+              <tr>
+                <th>วันที่ยื่นคำขอ</th>
+                <th>ชื่อ-นามสกุล</th>
+                <th>ประเภทการลา</th>
+                <th>วันที่ลา (เริ่ม - สิ้นสุด)</th>
+                <th>จำนวนวัน</th>
+                <th>เหตุผลการลา</th>
+                <th class="text-center">จัดการคำขอ</th>
+              </tr>
+            </thead>
+            <tbody id="approveTableBody"></tbody>
+          </table>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">📭</div>
+          <p>กรุณาเลือกช่วงวันที่และสถานะคำขอ จากนั้นกดปุ่ม "ค้นหาข้อมูล"</p>
+        </div>
+      </div>
+    </main>
+
+    <div id="rejectModal" class="modal-overlay" style="display: none">
+      <div class="modal-box">
+        <div class="modal-icon icon-warn">⚠️</div>
+        <h3>ยืนยันการปฏิเสธใบลา</h3>
+        <p>คุณยืนยันที่จะไม่อนุมัติรายการขอนี้ใช่ไหม?</p>
+        <div class="modal-buttons">
+          <button id="btnRejectConfirm" class="btn-modal btn-modal-danger">
+            ยืนยัน
+          </button>
+          <button id="btnRejectCancel" class="btn-modal btn-modal-secondary">
+            ยกเลิก
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="successModal" class="modal-overlay" style="display: none">
+      <div class="modal-box">
+        <div class="modal-icon icon-success">✅</div>
+        <h3>ดำเนินการสำเร็จ</h3>
+        <p id="successModalMessage">อนุมัติคำขอนี้เรียบร้อยแล้ว</p>
+        <div class="modal-buttons">
+          <button id="btnSuccessClose" class="btn-modal btn-modal-primary">
+            ตกลง
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="jsapprove.js"></script>
+  </body>
+</html>

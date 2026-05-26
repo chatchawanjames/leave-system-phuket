@@ -1,0 +1,445 @@
+/* --- csssubstitute.css (ฉบับแยกสไตล์เพื่อคุมหน้าจัดการตัวแทนสอนแทนเพียวๆ) --- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Prompt", sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+  min-height: 100vh;
+}
+
+/* 🧭 NAVBAR */
+.navbar {
+  background-color: #ffffff;
+  height: 70px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-logo {
+  height: 50px;
+  width: auto;
+}
+.nav-center h1 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #2d3748;
+}
+.profile-dropdown {
+  position: relative;
+  padding: 10px 0;
+  cursor: pointer;
+}
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+.user-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2d3748;
+}
+.user-subtype {
+  font-size: 12px;
+  color: #64748b;
+}
+.arrow-down {
+  border: solid #64748b;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #ffffff;
+  min-width: 150px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 6px 0;
+  display: none;
+}
+.profile-dropdown:hover .dropdown-menu {
+  display: block;
+}
+.dropdown-item {
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  color: #4a5568;
+  cursor: pointer;
+}
+.dropdown-item:hover {
+  background-color: #eff6ff;
+  color: #3b82f6;
+}
+
+/* 📦 CONTAINER & BOX */
+.content-container {
+  max-width: 1500px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+.back-link-wrapper {
+  margin-bottom: 20px;
+}
+.btn-back {
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+.btn-back:hover {
+  text-decoration: underline;
+}
+
+/* 🔍 FILTER CARD */
+.filter-card {
+  background-color: #ffffff;
+  padding: 20px 25px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 180px;
+}
+.filter-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+}
+.filter-group input,
+.filter-group select {
+  padding: 8px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #334155;
+  outline: none;
+  background-color: #ffffff;
+}
+.filter-group input:focus,
+.filter-group select:focus {
+  border-color: #0284c7;
+}
+
+.btn-search {
+  padding: 9px 24px;
+  background-color: #0284c7;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.15s;
+}
+.btn-search:hover {
+  background-color: #0369a1;
+}
+
+.substitute-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+.substitute-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 20px;
+}
+.icon-heading {
+  color: #0284c7;
+}
+.header-text h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-text p {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.btn-export {
+  padding: 8px 16px;
+  background-color: #16a34a;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.15s;
+}
+.btn-export:hover {
+  background-color: #15803d;
+}
+
+/* 📊 DATA TABLE DESIGN */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+}
+.substitute-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+.substitute-table th {
+  background-color: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+  padding: 14px 16px;
+  border-bottom: 2px solid #e2e8f0;
+  white-space: nowrap;
+}
+.substitute-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  white-space: nowrap;
+}
+.substitute-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.substitute-table th:nth-child(1),
+.substitute-table td:nth-child(1),
+.substitute-table th:nth-child(5),
+.substitute-table td:nth-child(5),
+.substitute-table th:nth-child(6),
+.substitute-table td:nth-child(6),
+.substitute-table th:nth-child(7),
+.substitute-table td:nth-child(7),
+.substitute-table th:nth-child(8),
+.substitute-table td:nth-child(8),
+.substitute-table th:nth-child(10),
+.substitute-table td:nth-child(10) {
+  text-align: center;
+}
+
+/* 🔄 SELECT IN TABLE DROPDOWN */
+.select-substitute {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #334155;
+  outline: none;
+  background-color: #ffffff;
+}
+.select-substitute:focus {
+  border-color: #0284c7;
+}
+
+/* 💾 BUTTON ACTION IN ROW */
+.btn-save-row {
+  padding: 6px 14px;
+  background-color: #0284c7;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+.btn-save-row:hover {
+  background-color: #0369a1;
+}
+
+.text-success-assigned {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* 📭 EMPTY STATE & SPINNER */
+.empty-state {
+  text-align: center;
+  padding: 60px 0;
+  color: #64748b;
+}
+.empty-icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/* 🔄 ปรับแต่งกล่อง Spinner คลุมตอนค้นหาข้อมูล ให้ดันตัวหมุนมาอยู่กึ่งกลางเป๊ะๆ */
+.spinner-wrapper {
+  text-align: center;
+  padding: 60px 0;
+  color: #64748b;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ดันตามแกน X มาไว้ตรงกลาง */
+  justify-content: center; /* คุมน้ำหนักตรงกลาง */
+  gap: 12px; /* ระยะห่างระหว่างตัวหมุนกับตัวหนังสือ */
+}
+
+.spinner-wrapper p {
+  font-size: 14px;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* 🚨 SYSTEM LOADING & MODAL OVERLAY */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.spinner {
+  width: 45px;
+  height: 45px;
+  border: 5px solid #e2e8f0;
+  border-top: 5px solid #0284c7;
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: spin 1s linear infinite;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease-out;
+}
+.modal-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: slideUp 0.25s ease-out;
+}
+.modal-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+.modal-box h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+.modal-box p {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 25px;
+}
+
+.btn-modal-primary {
+  padding: 10px 24px;
+  background-color: #0284c7;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+}
+.btn-modal-primary:hover {
+  background-color: #0369a1;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.hidden {
+  display: none !important;
+}

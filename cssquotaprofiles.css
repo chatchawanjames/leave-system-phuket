@@ -1,0 +1,342 @@
+/* ==========================================================================
+   🎨 cssquotaprofiles.css (ไฟล์สไตล์เฉพาะหน้าจัดการโควตาและโปรไฟล์บุคลากร)
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Prompt", "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+  min-height: 100vh;
+}
+
+/* 🧭 NAVIGATION BAR SYSTEM */
+.navbar {
+  background-color: #ffffff;
+  height: 70px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-logo {
+  height: 50px;
+  width: auto;
+}
+.nav-center h1 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #2d3748;
+}
+.profile-dropdown {
+  position: relative;
+  padding: 10px 0;
+  cursor: pointer;
+}
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+.user-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2d3748;
+}
+.user-subtype {
+  font-size: 12px;
+  font-weight: 400;
+  color: #64748b;
+}
+.arrow-down {
+  border: solid #64748b;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #ffffff;
+  min-width: 150px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 6px 0;
+  display: none;
+}
+.profile-dropdown:hover .dropdown-menu {
+  display: block;
+}
+.dropdown-item {
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  color: #4a5568;
+  cursor: pointer;
+}
+.dropdown-item:hover {
+  background-color: #eff6ff;
+  color: #0284c7;
+}
+
+/* 📦 MAIN LAYOUT CONTAINER */
+.content-container {
+  max-width: 1280px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+.back-link-wrapper {
+  margin-bottom: 20px;
+}
+.btn-back {
+  color: #0284c7;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+.btn-back:hover {
+  text-decoration: underline;
+}
+
+.management-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.mgmt-header {
+  margin-bottom: 25px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 15px;
+}
+.mgmt-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.icon-heading {
+  color: #0284c7;
+}
+.mgmt-header p {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 4px;
+  font-weight: 300;
+}
+
+/* 📊 DATA TABLE SYSTEM (รองรับ 12 คอลัมน์แบบไม่เบียดแน่น) */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+  min-width: 1100px; /* คุมความกว้างขั้นต่ำไม่ให้คอลัมน์บีบตัวจนอ่านไม่ออก */
+}
+
+.user-table th,
+.user-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap; /* ล็อกข้อความไม่ให้แตกขึ้นบรรทัดใหม่มั่วซั่ว */
+}
+
+.user-table th {
+  background-color: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+}
+
+.user-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* 🔘 BUTTON STYLES */
+.btn-submit-leave {
+  background-color: #0284c7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.btn-submit-leave:hover {
+  background-color: #0369a1;
+}
+
+.btn-edit-action {
+  background-color: #f0f9ff;
+  color: #0284c7;
+  border: 1px solid #bae6fd;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.btn-edit-action:hover {
+  background-color: #0284c7;
+  color: white;
+  border-color: #0284c7;
+}
+
+/* 🛠️ MODAL OVERLAY & CARD SYSTEM */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 23, 42, 0.4); /* เข้มพรีเมียมแบบโปร่งแสง */
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ⚠️ MODAL ALERTS */
+.modal-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 15px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+.modal-icon.success {
+  background-color: #e6f4ea;
+  color: #137333;
+}
+.modal-icon.success::after {
+  content: "✓";
+}
+.modal-icon.error {
+  background-color: #fce8e6;
+  color: #c5221f;
+}
+.modal-icon.error::after {
+  content: "✕";
+}
+.modal-btn {
+  padding: 10px 30px;
+  background-color: #0284c7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* ⏳ LOADING SPINNER SYSTEM */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.spinner {
+  width: 45px;
+  height: 45px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #0284c7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ==========================================================================
+   🎯 จัดระเบียบปุ่มตกลงใน Status Modal ให้อยู่กึ่งกลางหน้าจอกริ๊งๆ เหมือนหน้า Register
+   ========================================================================== */
+#statusModal .modal-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ดันทุกอย่างในใบการ์ด ทั้งไอคอน หัวข้อ และปุ่ม มารวมตรงกลาง */
+  text-align: center;
+}
+
+#statusModal .modal-btn {
+  margin-top: 20px; /* เว้นระยะห่างจากหัวข้อข้อความลงมาหน่อย */
+  min-width: 120px; /* กำหนดความกว้างขั้นต่ำให้ปุ่มดูอวบอิ่มพรีเมียม */
+  display: inline-block;
+}
+
+/* ==========================================================================
+   📊 จัดระเบียบข้อความตัวเลขโควตาวันลา (คอลัมน์ 5 ถึง 11) ให้อยู่กึ่งกลางตาราง
+   ========================================================================== */
+
+/* เจาะจงลำดับคอลัมน์ในตารางเพื่อสั่งจัดกึ่งกลาง (คอลัมน์โควตา Max และ Used ทั้งหมด) */
+.user-table th:nth-child(5), .user-table td:nth-child(5), /* โควตาป่วย */
+.user-table th:nth-child(6), .user-table td:nth-child(6), /* ป่วยใช้แล้ว */
+.user-table th:nth-child(7), .user-table td:nth-child(7), /* โควตากิจ */
+.user-table th:nth-child(8), .user-table td:nth-child(8), /* กิจใช้แล้ว */
+.user-table th:nth-child(9), .user-table td:nth-child(9), /* โควตาคลอด */
+.user-table th:nth-child(10), .user-table td:nth-child(10), /* คลอดใช้แล้ว */
+.user-table th:nth-child(11), .user-table td:nth-child(11)  /* ราชการใช้แล้ว */ {
+  text-align: center;
+}
